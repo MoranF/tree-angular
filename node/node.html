@@ -1,0 +1,18 @@
+<span ng-class="{'has-children': node.children.length > 0}" 
+	class="node-title"
+	title="{{node.title}}"
+	ng-click="toggleCollapse(); $event.stopPropagation();">
+	{{node.title}}
+
+	<span ng-if="node.children.length > 0" class="open-arrow">
+		&gt;
+	</span>
+</span>
+<ul>
+    <li ng-repeat="node in node.children" 
+    	ng-include="'node/node.html'"
+    	ng-controller="NodeController"
+	    ng-class="{'show-children': isShowChildren}"
+    	class="child-node">
+    </li>
+</ul>

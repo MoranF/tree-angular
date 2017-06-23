@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tree App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="tree/tree.svc.js"></script>
+  <script src="tree/tree.ctrl.js"></script>
+  <script src="node/node.ctrl.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />  
+</head>
+<body ng-app="treeApp" ng-controller="TreeController">
+	<ul>
+		<li ng-repeat="node in treeObject.children" 
+      ng-include="'node/node.html'"
+      ng-controller="NodeController"
+      ng-class="{'show-children': isShowChildren}"
+      class="root-node">
+    </li>
+	</ul>
+</body>
+</html>
